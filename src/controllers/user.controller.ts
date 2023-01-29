@@ -22,13 +22,13 @@ export class UserController {
         return this.userService.createUser(user)
     }
 
-    @Delete('/delete')
-    deleteUser() {
+    @Delete('/:id')
+    deleteUser(@Param('id') id):string {
+        console.log(id);
         return this.userService.deleteUser()
     }
-    @Put('/update/1')
-    editUser() {
-        const id = 1
+    @Put('/:id')
+    updateUser(@Param('id') id, @Body()user:dataUser) {
         return this.userService.editUser(id)
     }
 }
