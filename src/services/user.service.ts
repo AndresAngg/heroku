@@ -21,7 +21,7 @@ export class UserService {
     deleteUser(): string {
         return "eliminar usuario"
     }
-    editUser(id) {
+    editUser(id, body): string  {
 
         const data = [
             {
@@ -37,13 +37,14 @@ export class UserService {
 
             }
         ]
-        data.map((currentUser)=> {
-            if(id == currentUser.id){
-                console.log(currentUser.email)
-                return `update usuario ${currentUser.email}`
+        data.map((currentUserId)=> {
+            if(id == currentUserId.id){
+                console.log(body)
+                return `update usuario ${currentUserId.name}`
             }else{
                 return "Err"
             }
         })
+        return "a"
     }
 }

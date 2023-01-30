@@ -29,6 +29,6 @@ export class UserController {
     }
     @Put('/:id')
     updateUser(@Param('id') id, @Body()user:dataUser) {
-        return this.userService.editUser(id)
+        return this.userService.editUser(id, user)
     }
 }
