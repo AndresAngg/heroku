@@ -18,10 +18,10 @@ export class UserService {
     createUser(data): string {
         return `Se creo el usuario ${data.name}`
     }
-    deleteUser(): string {
-        return "eliminar usuario"
+    deleteUser(id): string {
+        return `Se elimino el usuario ${id}`
     }
-    editUser(id, body): string  {
+    editUser(id, body): string {
 
         const data = [
             {
@@ -37,14 +37,13 @@ export class UserService {
 
             }
         ]
-        data.map((currentUserId)=> {
-            if(id == currentUserId.id){
+        data.map((currentUserId) => {
+            if (id == currentUserId.id) {
                 console.log(body)
                 return `update usuario ${currentUserId.name}`
-            }else{
-                return "Err"
             }
         })
-        return "a"
+        throw new Error("ERR");
+
     }
 }
